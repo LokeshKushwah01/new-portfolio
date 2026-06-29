@@ -8,11 +8,29 @@ const NAV_LINKS = ['About', 'Skills', 'Projects', 'Experience', 'Contact'];
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [active, setActive] = useState('');
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  // Track which section is in the centre of the viewport
+  useEffect(() => {
+    const sections = NAV_LINKS.map((l) => document.getElementById(l.toLowerCase())).filter(Boolean) as HTMLElement[];
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActive(entry.target.id);
+        });
+      },
+      { rootMargin: '-40% 0px -50% 0px', threshold: 0 }
+    );
+
+    sections.forEach((s) => observer.observe(s));
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -34,16 +52,28 @@ export function Navbar() {
 
         {/* Desktop */}
         <ul className="hidden md:flex gap-8">
-          {NAV_LINKS.map((link) => (
-            <li key={link}>
-              <a
-                href={`#${link.toLowerCase()}`}
-                className="text-slate-400 hover:text-slate-100 transition-colors duration-200 text-sm tracking-wide"
-              >
-                {link}
-              </a>
-            </li>
-          ))}
+          {NAV_LINKS.map((link) => {
+            const isActive = active === link.toLowerCase();
+            return (
+              <li key={link} className="relative">
+                <a
+                  href={`#${link.toLowerCase()}`}
+                  className={`text-sm tracking-wide transition-colors duration-200 ${
+                    isActive ? 'text-indigo-400' : 'text-slate-400 hover:text-slate-100'
+                  }`}
+                >
+                  {link}
+                </a>
+                {isActive && (
+                  <motion.span
+                    layoutId="nav-indicator"
+                    className="absolute -bottom-1 left-0 right-0 h-[2px] rounded-full bg-indigo-500"
+                    transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                  />
+                )}
+              </li>
+            );
+          })}
         </ul>
 
         {/* Mobile toggle */}
@@ -72,7 +102,9 @@ export function Navbar() {
                   key={link}
                   href={`#${link.toLowerCase()}`}
                   onClick={() => setOpen(false)}
-                  className="block py-3 text-slate-400 hover:text-slate-100 transition-colors border-b border-slate-800/60 last:border-0 text-sm"
+                  className={`block py-3 transition-colors border-b border-slate-800/60 last:border-0 text-sm ${
+                    active === link.toLowerCase() ? 'text-indigo-400' : 'text-slate-400 hover:text-slate-100'
+                  }`}
                 >
                   {link}
                 </a>

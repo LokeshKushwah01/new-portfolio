@@ -4,7 +4,7 @@ import { loadSlim } from '@tsparticles/slim';
 import type { Engine } from '@tsparticles/engine';
 import { TypeAnimation } from 'react-type-animation';
 import { motion } from 'framer-motion';
-import { ArrowDown, Mail } from 'lucide-react';
+import { ArrowDown, Mail, Download } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from './icons';
 
 const PARTICLE_OPTIONS = {
@@ -111,7 +111,7 @@ export function Hero() {
         {/* CTAs */}
         <motion.div
           {...fadeUp(0.55)}
-          className="flex flex-wrap gap-4 justify-center mb-10"
+          className="flex flex-wrap gap-4 justify-center mb-5"
         >
           <a
             href="#projects"
@@ -121,9 +121,21 @@ export function Hero() {
           </a>
           <a
             href="#contact"
-            className="px-7 py-3 border border-indigo-500/30 text-slate-200 hover:border-indigo-500/70 hover:bg-indigo-500/10 rounded-lg font-medium text-sm tracking-wide transition-all duration-300"
+            className="px-7 py-3 border border-slate-700/60 text-slate-400 hover:border-slate-500 hover:text-slate-200 rounded-lg font-medium text-sm tracking-wide transition-all duration-300"
           >
             Get In Touch
+          </a>
+        </motion.div>
+
+        {/* Download CV — standalone */}
+        <motion.div {...fadeUp(0.62)} className="flex justify-center mb-10">
+          <a
+            href="/Lokesh_Kushwah_CV.pdf"
+            download
+            className="group inline-flex items-center gap-2.5 px-6 py-2.5 rounded-full border border-indigo-500/25 bg-indigo-500/5 hover:bg-indigo-500/15 hover:border-indigo-500/50 text-slate-300 hover:text-white text-sm font-medium tracking-wide transition-all duration-300"
+          >
+            <Download size={14} className="text-indigo-400 group-hover:animate-bounce" />
+            Download CV
           </a>
         </motion.div>
 
@@ -142,7 +154,7 @@ export function Hero() {
             <GithubIcon size={19} />
           </a>
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/lokesh-kushwah-75974b230"
             target="_blank"
             rel="noreferrer"
             aria-label="LinkedIn"
