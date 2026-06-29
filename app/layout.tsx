@@ -4,6 +4,8 @@ import "./globals.css";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { BackToTop } from "@/components/BackToTop";
 import { Loader } from "@/components/Loader";
+import { SmoothScroll } from "@/components/SmoothScroll";
+import { ParticlesBackground } from "@/components/ParticlesBackground";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,10 +32,13 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} antialiased`}
     >
       <body className="min-h-screen bg-[#080B14] text-slate-200">
-        <Loader />
-        <ScrollProgress />
-        {children}
-        <BackToTop />
+        <ParticlesBackground />
+        <div className="relative" style={{ zIndex: 1 }}>
+          <Loader />
+          <ScrollProgress />
+          <SmoothScroll>{children}</SmoothScroll>
+          <BackToTop />
+        </div>
       </body>
     </html>
   );

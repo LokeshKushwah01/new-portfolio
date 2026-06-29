@@ -40,7 +40,7 @@ export function About() {
   const inView = useInView(ref, { once: true, margin: '-80px' });
 
   return (
-    <section id="about" className="py-28 bg-[#0F1629]">
+    <section id="about" className="py-28 bg-[#0F1629]/60">
       <div className="max-w-6xl mx-auto px-6">
         <SectionTitle subtitle="Get to know me" title="About Me" />
 

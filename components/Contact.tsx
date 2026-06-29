@@ -90,7 +90,7 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-28 bg-[#0F1629]">
+    <section id="contact" className="py-28 bg-[#0F1629]/60">
       <div className="max-w-6xl mx-auto px-6">
         <SectionTitle subtitle="Let's talk" title="Get In Touch" />
 
