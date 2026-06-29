@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Lokesh Kushwah — Portfolio
+
+A modern, animated portfolio website built with Next.js 16, Tailwind CSS, and Framer Motion. Features a premium dark theme with interactive particle background, scroll-reveal animations, and a typewriter hero effect.
+
+## Tech Stack
+
+- **Framework** — Next.js 16 (App Router, TypeScript)
+- **Styling** — Tailwind CSS v4
+- **Animations** — Framer Motion (scroll-reveal, page transitions)
+- **Particles** — @tsparticles/react + @tsparticles/slim
+- **Typewriter** — react-type-animation
+- **Forms** — react-hook-form
+- **Icons** — lucide-react + custom SVGs
+
+## Sections
+
+- **Hero** — Particle canvas background, typewriter role animation, CTA buttons
+- **About** — Bio, animated stat counters
+- **Skills** — 12-tech grid with stagger-in animation
+- **Projects** — 6 project cards with gradient accents and live/code links
+- **Experience** — Alternating vertical timeline
+- **Contact** — Form with mailto fallback + social links
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+# Install dependencies
+npm install
+
+# Start dev server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## Customisation
 
-To learn more about Next.js, take a look at the following resources:
+| What to change | Where |
+|---|---|
+| Name, title, bio | `components/About.tsx`, `components/Hero.tsx` |
+| Projects | `components/Projects.tsx` — edit the `PROJECTS` array |
+| Work history | `components/Experience.tsx` — edit the `EXPERIENCE` array |
+| Skills | `components/Skills.tsx` — edit the `SKILLS` array |
+| Social links | `components/Hero.tsx`, `components/Contact.tsx` |
+| Profile photo | Replace the monogram placeholder in `components/About.tsx` with an `<Image>` tag |
+| Accent color | Search-replace `indigo` across components (current: `#6366F1`) |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Color Palette
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Token | Hex | Usage |
+|---|---|---|
+| Base | `#080B14` | Page background |
+| Surface | `#0F1629` | Alternating sections |
+| Card | `#141D35` | Cards, timeline items |
+| Accent | `#6366F1` | Buttons, borders, highlights |
+| Text | `#E2E8F0` | Headings |
+| Muted | `#94A3B8` | Body copy, labels |
 
-## Deploy on Vercel
+## Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Deploy instantly on [Vercel](https://vercel.com) — connect the repo and it auto-detects Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm install -g vercel
+vercel
+```
+
+## License
+
+MIT
