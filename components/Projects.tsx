@@ -168,7 +168,7 @@ export function Projects() {
   const inView = useInView(ref, { once: true, margin: '-60px' });
 
   return (
-    <section id="projects" className="py-28 bg-[#0F1629]">
+    <section id="projects" className="py-28 bg-[#0F1629]/60">
       <div className="max-w-6xl mx-auto px-6">
         <SectionTitle subtitle="What I've built" title="Projects" />
 

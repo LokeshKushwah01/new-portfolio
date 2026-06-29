@@ -40,7 +40,7 @@ const EXPERIENCE = [
 
 export function Experience() {
   return (
-    <section id="experience" className="py-28 bg-[#080B14]">
+    <section id="experience" className="py-28">
       <div className="max-w-4xl mx-auto px-6">
         <SectionTitle subtitle="Where I've worked" title="Experience" />
 

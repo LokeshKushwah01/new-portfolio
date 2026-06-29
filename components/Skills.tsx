@@ -39,7 +39,7 @@ export function Skills() {
   const inView = useInView(ref, { once: true, margin: '-60px' });
 
   return (
-    <section id="skills" className="py-28 bg-[#080B14]">
+    <section id="skills" className="py-28">
       <div className="max-w-6xl mx-auto px-6">
         <SectionTitle subtitle="What I work with" title="Skills & Stack" />
 
