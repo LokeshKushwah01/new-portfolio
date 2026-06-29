@@ -7,58 +7,40 @@ import { SectionTitle } from './SectionTitle';
 
 const PROJECTS = [
   {
-    title: 'E-Commerce Platform',
+    title: 'Real-Time Chat App',
     description:
-      'Full-stack e-commerce solution with payment integration, inventory management, and real-time order tracking.',
-    tech: ['Next.js', 'Node.js', 'PostgreSQL', 'Stripe'],
+      'Full-stack messaging platform with private rooms, live typing indicators, and file sharing built on WebSockets.',
+    tech: ['React', 'Node.js', 'Socket.io', 'MongoDB', 'Express.js'],
     github: '#',
     demo: '#',
     accent: '#6366F1',
   },
   {
-    title: 'Task Management App',
+    title: 'E-Commerce Store',
     description:
-      'Collaborative project management tool with real-time updates, drag-and-drop boards, and team workspaces.',
-    tech: ['React', 'Socket.io', 'MongoDB', 'Express'],
+      'End-to-end shopping platform with product catalogue, cart management, order tracking, and admin dashboard.',
+    tech: ['Next.js', 'TypeScript', 'MongoDB', 'Express.js', 'Tailwind CSS'],
     github: '#',
     demo: '#',
     accent: '#8B5CF6',
   },
   {
-    title: 'API Gateway Service',
+    title: 'Task Management Dashboard',
     description:
-      'Microservices gateway with rate limiting, JWT authentication middleware, and intelligent request routing.',
-    tech: ['Node.js', 'Redis', 'Docker', 'AWS'],
+      'Drag-and-drop project board with team workspaces, priority labels, and real-time status updates.',
+    tech: ['React', 'Redux Toolkit', 'Node.js', 'MongoDB', 'Socket.io'],
     github: '#',
     demo: '#',
     accent: '#3B82F6',
   },
   {
-    title: 'Analytics Dashboard',
+    title: 'Developer Portfolio',
     description:
-      'Real-time analytics platform with interactive charts, multi-dimensional filters, and CSV export.',
-    tech: ['React', 'TypeScript', 'GraphQL', 'D3.js'],
-    github: '#',
+      'This portfolio — built with Next.js App Router, Framer Motion animations, and a custom dark design system.',
+    tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
+    github: 'https://github.com/LokeshKushwah01',
     demo: '#',
     accent: '#10B981',
-  },
-  {
-    title: 'Headless CMS',
-    description:
-      'Content management system with rich-text editing, media management, and multi-tenant support.',
-    tech: ['Next.js', 'Strapi', 'PostgreSQL', 'S3'],
-    github: '#',
-    demo: '#',
-    accent: '#0EA5E9',
-  },
-  {
-    title: 'Real-Time Chat',
-    description:
-      'Encrypted messaging platform with file sharing, group channels, and message threading.',
-    tech: ['React', 'WebSocket', 'Node.js', 'MongoDB'],
-    github: '#',
-    demo: '#',
-    accent: '#14B8A6',
   },
 ];
 

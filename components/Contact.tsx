@@ -10,33 +10,37 @@ interface FormData {
   name: string;
   email: string;
   message: string;
-  _hp: string; // honeypot — must stay empty
+  _hp: string;
 }
 
 const SOCIALS = [
   {
     icon: GithubIcon,
     label: 'GitHub',
-    value: 'github.com/lokeshkushwah',
+    value: 'LokeshKushwah',
     href: 'https://github.com/LokeshKushwah01',
+    link: true,
   },
   {
     icon: LinkedinIcon,
     label: 'LinkedIn',
-    value: 'linkedin.com/in/lokeshkushwah',
-    href: 'https://linkedin.com',
+    value: 'lokesh-kushwah',
+    href: 'https://www.linkedin.com/in/lokesh-kushwah-75974b230',
+    link: true,
   },
   {
     icon: Mail,
     label: 'Email',
     value: 'lokeshkushwah192@gmail.com',
     href: 'mailto:lokeshkushwah192@gmail.com',
+    link: true,
   },
   {
     icon: MapPin,
     label: 'Location',
-    value: 'India',
-    href: '#',
+    value: 'Gwalior, Madhya Pradesh',
+    href: 'https://maps.google.com/?q=Gwalior,Madhya+Pradesh,India',
+    link: true,
   },
 ];
 
@@ -107,28 +111,46 @@ export function Contact() {
             </p>
 
             <div className="space-y-4">
-              {SOCIALS.map(({ icon: Icon, label, value, href }, i) => (
-                <motion.a
-                  key={label}
-                  href={href}
-                  target={href.startsWith('http') ? '_blank' : undefined}
-                  rel="noreferrer"
-                  initial={{ opacity: 0, x: -16 }}
-                  animate={inView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: 0.45, delay: 0.15 + i * 0.08 }}
-                  className="flex items-center gap-4 group"
-                >
-                  <div className="w-9 h-9 rounded-lg bg-[#141D35] border border-indigo-500/15 group-hover:border-indigo-500/40 flex items-center justify-center flex-shrink-0 transition-all duration-300">
-                    <Icon size={15} className="text-indigo-400" />
-                  </div>
-                  <div>
-                    <p className="text-[10px] text-slate-600 uppercase tracking-widest">{label}</p>
-                    <p className="text-sm text-slate-300 group-hover:text-indigo-300 transition-colors">
-                      {value}
-                    </p>
-                  </div>
-                </motion.a>
-              ))}
+              {SOCIALS.map(({ icon: Icon, label, value, href, link }, i) => {
+                const inner = (
+                  <>
+                    <div className={`w-9 h-9 rounded-lg bg-[#141D35] border flex items-center justify-center flex-shrink-0 transition-all duration-300 ${link ? 'border-indigo-500/15 group-hover:border-indigo-500/40' : 'border-indigo-500/10'}`}>
+                      <Icon size={15} className="text-indigo-400" />
+                    </div>
+                    <div>
+                      <p className="text-[10px] text-slate-600 uppercase tracking-widest">{label}</p>
+                      <p className={`text-sm text-slate-300 transition-colors ${link ? 'group-hover:text-indigo-300' : ''}`}>
+                        {value}
+                      </p>
+                    </div>
+                  </>
+                );
+
+                return link ? (
+                  <motion.a
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noreferrer"
+                    initial={{ opacity: 0, x: -16 }}
+                    animate={inView ? { opacity: 1, x: 0 } : {}}
+                    transition={{ duration: 0.45, delay: 0.15 + i * 0.08 }}
+                    className="flex items-center gap-4 group"
+                  >
+                    {inner}
+                  </motion.a>
+                ) : (
+                  <motion.div
+                    key={label}
+                    initial={{ opacity: 0, x: -16 }}
+                    animate={inView ? { opacity: 1, x: 0 } : {}}
+                    transition={{ duration: 0.45, delay: 0.15 + i * 0.08 }}
+                    className="flex items-center gap-4"
+                  >
+                    {inner}
+                  </motion.div>
+                );
+              })}
             </div>
           </motion.div>
 
