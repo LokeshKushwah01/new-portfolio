@@ -17,10 +17,68 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const SITE_URL = "https://trackerhub.in";
+const TITLE = "Lokesh Kushwah — Full-Stack Developer";
+const DESCRIPTION =
+  "I'm Lokesh Kushwah, a full-stack developer in India. I design and build fast, reliable web apps with React, Next.js and Node.js. Explore my projects and get in touch.";
+
 export const metadata: Metadata = {
-  title: "Lokesh Kushwah — Full-Stack Developer",
-  description:
-    "Portfolio of Lokesh Kushwah — Full-Stack Developer specialising in React, Next.js, and Node.js.",
+  metadataBase: new URL(SITE_URL),
+  title: TITLE,
+  description: DESCRIPTION,
+  applicationName: "TrackerHub",
+  authors: [{ name: "Lokesh Kushwah", url: SITE_URL }],
+  creator: "Lokesh Kushwah",
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    url: SITE_URL,
+    siteName: "TrackerHub",
+    title: TITLE,
+    description: DESCRIPTION,
+    locale: "en_IN",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description: DESCRIPTION,
+  },
+  robots: { index: true, follow: true },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      url: `${SITE_URL}/`,
+      name: "TrackerHub",
+      alternateName: "trackerhub.in",
+      inLanguage: "en",
+      publisher: { "@id": `${SITE_URL}/#person` },
+    },
+    {
+      "@type": "Person",
+      "@id": `${SITE_URL}/#person`,
+      name: "Lokesh Kushwah",
+      url: `${SITE_URL}/`,
+      image: `${SITE_URL}/avatar.png`,
+      jobTitle: "Full-Stack Developer",
+      email: "mailto:lokeshkushwah192@gmail.com",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Gwalior",
+        addressCountry: "IN",
+      },
+      knowsAbout: ["React", "Next.js", "Node.js", "TypeScript", "MongoDB"],
+      sameAs: [
+        "https://github.com/LokeshKushwah01",
+        "https://www.linkedin.com/in/lokesh-kushwah-75974b230",
+      ],
+      mainEntityOfPage: { "@id": `${SITE_URL}/#website` },
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -32,6 +90,10 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} antialiased`}
     >
       <body className="min-h-screen bg-[#080B14] text-slate-200">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <ParticlesBackground />
         <div className="relative" style={{ zIndex: 1 }}>
           <Loader />

@@ -1,4 +1,5 @@
 'use client'
+import { useEffect, useState } from 'react'
 import { ParticlesProvider, useParticlesProvider, Particles } from '@tsparticles/react'
 import { loadSlim } from '@tsparticles/slim'
 import type { Engine } from '@tsparticles/engine'
@@ -53,6 +54,20 @@ function Canvas() {
 }
 
 export function ParticlesBackground() {
+  const [enabled, setEnabled] = useState(false)
+
+  // Skip on small screens / reduced motion, and wait until the page is idle
+  useEffect(() => {
+    const skip =
+      window.matchMedia('(max-width: 767px)').matches ||
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (skip) return
+    const t = setTimeout(() => setEnabled(true), 2500)
+    return () => clearTimeout(t)
+  }, [])
+
+  if (!enabled) return null
+
   return (
     <ParticlesProvider init={init}>
       <Canvas />

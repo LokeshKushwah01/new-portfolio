@@ -7,7 +7,7 @@ import { SectionTitle } from './SectionTitle';
 const EXPERIENCE = [
   {
     role: 'Full-Stack Developer',
-    company: 'Digimonk Solutions',
+    company: 'Digimonk Technologies',
     duration: '2025 — Present',
     points: [
       'Built and maintained scalable web applications for diverse client portfolios.',
@@ -18,7 +18,7 @@ const EXPERIENCE = [
   },
   {
     role: 'Web Developer Intern',
-    company: 'Digimonk Solutions',
+    company: 'Digimonk Technologies',
     duration: 'june,2025 — August,2025',
     points: [
       'Developed RESTful APIs with Node.js and Express serving 10k+ daily users.',

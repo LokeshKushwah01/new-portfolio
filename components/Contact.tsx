@@ -92,7 +92,7 @@ export function Contact() {
   return (
     <section id="contact" className="py-28 bg-[#0F1629]/60">
       <div className="max-w-6xl mx-auto px-6">
-        <SectionTitle subtitle="Let's talk" title="Get In Touch" />
+        <SectionTitle subtitle="Let's talk" title="Contact" />
 
         <div ref={ref} className="mt-16 grid md:grid-cols-2 gap-12">
           {/* Info side */}
