@@ -6,7 +6,7 @@ export function Loader() {
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
-    const t = setTimeout(() => setVisible(false), 2000);
+    const t = setTimeout(() => setVisible(false), 900);
     return () => clearTimeout(t);
   }, []);
 
@@ -34,7 +34,7 @@ export function Loader() {
             <motion.div
               initial={{ width: '0%' }}
               animate={{ width: '100%' }}
-              transition={{ duration: 1.4, ease: 'easeInOut', delay: 0.2 }}
+              transition={{ duration: 0.6, ease: 'easeInOut', delay: 0.1 }}
               className="h-full bg-indigo-500 rounded-full"
             />
           </div>

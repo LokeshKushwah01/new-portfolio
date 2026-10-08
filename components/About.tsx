@@ -2,6 +2,7 @@
 import { useRef, useEffect, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import Image from 'next/image';
+import { Briefcase, MapPin } from 'lucide-react';
 import { SectionTitle } from './SectionTitle';
 
 const STATS = [
@@ -85,17 +86,32 @@ export function About() {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.1 }}
           >
-            <h3 className="text-2xl font-semibold text-slate-100 mb-4">
-              Full-Stack Developer based in India
+            {/* Quick facts */}
+            <div className="flex flex-wrap gap-2 mb-5">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-indigo-500/25 bg-indigo-500/10 px-3 py-1 text-xs text-indigo-200">
+                <MapPin size={12} aria-hidden="true" /> Gwalior, India
+              </span>
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/25 bg-emerald-500/10 px-3 py-1 text-xs text-emerald-300">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" /> Open to new work
+              </span>
+            </div>
+
+            <h3 className="text-3xl md:text-4xl font-bold text-slate-50 tracking-tight leading-tight mb-5">
+              I turn ideas into{' '}
+              <span className="bg-gradient-to-r from-indigo-400 via-violet-400 to-pink-400 bg-clip-text text-transparent">
+                fast, reliable products
+              </span>
             </h3>
             <p className="text-slate-400 leading-relaxed mb-4">
-              I build end-to-end web applications with a focus on clean architecture,
-              performance, and developer experience. Comfortable across the entire stack —
-              from database design and REST/GraphQL APIs to polished React UIs.
+              I&apos;m <span className="text-slate-100 font-medium">Lokesh Kushwah</span>, a full-stack
+              developer who builds web and mobile products end to end, from the database and APIs to
+              the interface people actually use. Day to day I work with{' '}
+              <span className="text-slate-200">React, Next.js, React Native and Node.js</span>.
             </p>
             <p className="text-slate-400 leading-relaxed mb-8">
-              I take pride in writing maintainable code that scales with the team, and I
-              enjoy turning complex problems into simple, elegant products that users love.
+              I care about clean, maintainable code and experiences that feel smooth on every screen.
+              Whether it&apos;s a company website, an AI product or a mobile app, the goal stays the
+              same: ship something simple, fast and a pleasure to use.
             </p>
 
             {/* Stats grid with count-up */}
@@ -106,12 +122,13 @@ export function About() {
                   initial={{ opacity: 0, y: 16 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: 0.3 + i * 0.1 }}
-                  className="bg-[#141D35] border border-indigo-500/10 rounded-xl p-4"
+                  whileHover={{ y: -3 }}
+                  className="rounded-2xl border border-white/5 bg-gradient-to-br from-[#16203B] to-[#111A30] p-5 transition-colors duration-300 hover:border-indigo-500/40"
                 >
-                  <div className="text-2xl font-bold text-indigo-400">
+                  <div className="text-3xl font-bold bg-gradient-to-r from-indigo-300 to-violet-400 bg-clip-text text-transparent">
                     <CountUp end={s.end} suffix={s.suffix} run={inView} />
                   </div>
-                  <div className="text-xs text-slate-500 mt-1 tracking-wide">{s.label}</div>
+                  <div className="text-xs text-slate-400 mt-1.5 tracking-wide">{s.label}</div>
                 </motion.div>
               ))}
             </div>

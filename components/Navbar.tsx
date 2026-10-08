@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { scrollToSection, SECTION_IDS } from '@/lib/scrollToSection';
 
 const NAV_LINKS = ['About', 'Skills', 'Projects', 'Experience', 'Contact'];
 
@@ -14,6 +15,22 @@ export function Navbar() {
     const onScroll = () => setScrolled(window.scrollY > 24);
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  // Scroll to the section named in the path on load, and on back/forward
+  useEffect(() => {
+    const goTo = (behavior: ScrollBehavior) => {
+      const id = window.location.pathname.replace(/^\//, '');
+      if (!id) return window.scrollTo({ top: 0, behavior });
+      if (SECTION_IDS.includes(id)) document.getElementById(id)?.scrollIntoView({ behavior });
+    };
+    const t = setTimeout(() => goTo('instant'), 300);
+    const onPop = () => goTo('smooth');
+    window.addEventListener('popstate', onPop);
+    return () => {
+      clearTimeout(t);
+      window.removeEventListener('popstate', onPop);
+    };
   }, []);
 
   // Track which section is in the centre of the viewport
@@ -44,6 +61,7 @@ export function Navbar() {
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         <a
           href="#hero"
+          onClick={(e) => scrollToSection(e, 'hero')}
           className="text-slate-100 font-bold text-lg tracking-tight select-none hover:opacity-90 transition-opacity duration-200"
           aria-label="Home"
         >
@@ -58,6 +76,7 @@ export function Navbar() {
               <li key={link} className="relative">
                 <a
                   href={`#${link.toLowerCase()}`}
+                  onClick={(e) => scrollToSection(e, link.toLowerCase())}
                   className={`text-sm tracking-wide transition-colors duration-200 ${
                     isActive ? 'text-indigo-400' : 'text-slate-400 hover:text-slate-100'
                   }`}
@@ -101,7 +120,10 @@ export function Navbar() {
                 <a
                   key={link}
                   href={`#${link.toLowerCase()}`}
-                  onClick={() => setOpen(false)}
+                  onClick={(e) => {
+                    setOpen(false);
+                    scrollToSection(e, link.toLowerCase());
+                  }}
                   className={`block py-3 transition-colors border-b border-slate-800/60 last:border-0 text-sm ${
                     active === link.toLowerCase() ? 'text-indigo-400' : 'text-slate-400 hover:text-slate-100'
                   }`}

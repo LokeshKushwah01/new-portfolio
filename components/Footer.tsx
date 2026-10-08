@@ -30,6 +30,9 @@ export function Footer() {
           <p className="text-xs text-slate-500 tracking-wide">
             Full-Stack Developer · Gwalior, India
           </p>
+          <p className="text-xs text-slate-600">
+            Portfolio of Lokesh Kushwah · TrackerHub (trackerhub.in)
+          </p>
         </div>
 
         {/* Nav links */}
