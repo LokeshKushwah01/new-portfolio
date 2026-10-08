@@ -20,13 +20,36 @@ const geistMono = Geist_Mono({
 const SITE_URL = "https://trackerhub.in";
 const TITLE = "Lokesh Kushwah — Full-Stack Developer";
 const DESCRIPTION =
-  "I'm Lokesh Kushwah, a full-stack developer in India. I design and build fast, reliable web apps with React, Next.js and Node.js. Explore my projects and get in touch.";
+  "I'm Lokesh Kushwah, a full stack developer in Gwalior, India. I build fast, reliable web and mobile apps with React, Next.js, Node.js and MongoDB. See my projects and get in touch.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: TITLE,
   description: DESCRIPTION,
   applicationName: "TrackerHub",
+  keywords: [
+    "Lokesh Kushwah",
+    "Lokesh Kushwah developer",
+    "TrackerHub",
+    "trackerhub.in",
+    "TrackerHub portfolio",
+    "full stack developer in Gwalior",
+    "web developer Gwalior",
+    "React developer Gwalior",
+    "Next.js developer Gwalior",
+    "Node.js developer Gwalior",
+    "software developer Gwalior",
+    "freelance web developer Gwalior",
+    "hire full stack developer Gwalior",
+    "full stack developer",
+    "full stack web developer",
+    "MERN stack developer",
+    "React Next.js developer",
+    "Node.js developer",
+    "React Native developer",
+    "freelance full stack developer India",
+    "full stack developer portfolio",
+  ],
   authors: [{ name: "Lokesh Kushwah", url: SITE_URL }],
   creator: "Lokesh Kushwah",
   alternates: { canonical: "/" },
@@ -65,6 +88,7 @@ const jsonLd = {
       url: `${SITE_URL}/`,
       image: `${SITE_URL}/avatar.png`,
       jobTitle: "Full-Stack Developer",
+      workLocation: { "@type": "Place", name: "Gwalior, Madhya Pradesh, India" },
       email: "mailto:lokeshkushwah192@gmail.com",
       address: {
         "@type": "PostalAddress",
