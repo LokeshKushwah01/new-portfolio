@@ -104,7 +104,7 @@ export function About() {
             </h3>
             <p className="text-slate-400 leading-relaxed mb-4">
               I&apos;m <span className="text-slate-100 font-medium">Lokesh Kushwah</span>, a full-stack
-              developer who builds web and mobile products end to end, from the database and APIs to
+              developer in Gwalior, India, who builds web and mobile products end to end, from the database and APIs to
               the interface people actually use. Day to day I work with{' '}
               <span className="text-slate-200">React, Next.js, React Native and Node.js</span>.
             </p>
